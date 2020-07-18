@@ -1,7 +1,5 @@
 package com.company.singleton;
 
-import com.company.singleton.LazySingleton;
-
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
@@ -12,7 +10,7 @@ public class Main {
         new Thread(runnable()).start();
 
         Thread.sleep(1000);
-        System.out.println(LazySingleton.getInstance().toString());
+        System.out.println(DoubleCheckLocking.getInstance().toString());
 
 //        LazySingleton instance = LazySingleton.getInstance();
 //        LazySingleton instance1 = LazySingleton.getInstance();
@@ -26,7 +24,7 @@ public class Main {
         return new Runnable() {
             @Override
             public void run() {
-                LazySingleton instance = LazySingleton.getInstance();
+                DoubleCheckLocking instance = DoubleCheckLocking.getInstance();
                 System.out.println(instance.toString());
 
             }
